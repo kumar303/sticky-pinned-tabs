@@ -19,4 +19,4 @@ Bump the version in `manifest.json`, create a git tag, execute `npm run pkg`, an
 
 ## Icons
 
-The icons for this extension are provided by icons8.
+The icons for this extension are provided by [icons8](https://icons8.com/).
