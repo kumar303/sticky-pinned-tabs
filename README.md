@@ -1,5 +1,9 @@
 This browser extension forces all links within a pinned tab to open with `target=_blank`. This makes your pinned tabs more "sticky" in that clicking on links won't lose the pinned content.
 
+## Installation
+
+Install it for Firefox from [addons.mozilla.org](https://addons.mozilla.org/en-US/firefox/addon/sticky-pinned-tabs/).
+
 ## Development
 
 Make sure you have Firefox and NodeJS (8 or higher) installed. Start developing like this:
