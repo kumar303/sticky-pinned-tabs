@@ -17,8 +17,12 @@
       "js": ["content.js"]
     }
   ],
+  "options_ui": {
+    "page": "options/options.html"
+  },
   "permissions": [
     "<all_urls>",
+    "storage",
     "tabs"
   ]
 }

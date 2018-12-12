@@ -4,7 +4,9 @@ const logId = 'sticky-pinned-tabs [extension]';
 
 function fixAllLinkTargets() {
   console.log(
-    `${logId}: Changing all links to open in target=_blank`,
+    `${logId}: ${
+      window.location.href
+    } Changing all links to open in target=_blank`,
   );
   for (const link of window.document.getElementsByTagName('a')) {
     if (link.href !== '' && link.href.indexOf('#') !== 0) {
@@ -13,8 +15,20 @@ function fixAllLinkTargets() {
   }
 }
 
+function shouldFixThisTab(sitesToIgnore) {
+  if (
+    sitesToIgnore.some((pattern) => {
+      return new RegExp(pattern, 'i').test(window.location.href);
+    })
+  ) {
+    return false;
+  }
+
+  return true;
+}
+
 browser.runtime.onMessage.addListener((request) => {
-  if (request.fixPinnedTabLinks) {
+  if (request.fixPinnedTabLinks && shouldFixThisTab(request.sitesToIgnore)) {
     fixAllLinkTargets();
   }
 });
