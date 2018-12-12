@@ -17,7 +17,7 @@ npm start
 
 ## Release
 
-Bump the version in `manifest.json`, create a git tag, execute `npm run pkg`, and upload the new version to the Firefox Developer Hub.
+Bump the version in `manifest.json` and `package.json`, create a git tag, execute `npm run pkg`, and upload the new version to the Firefox Developer Hub.
 
 ## Icons
 
