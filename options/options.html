@@ -31,18 +31,40 @@
   <body>
 
     <section>
-      <p class="title"><b>Sites to ignore</b></p>
-      <p>
-        When a URL of a pinned tab matches one of these case insensitive <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions">regular expressions</a>, its links will not be changed. Use this to ignore sites that already behave like pinned apps. Example: <code>twitter\.com</code>
-      </p>
-      <div class="info"><span></span>&nbsp;</div>
-      <textarea class="optionValue" rows="10" cols="50"></textarea>
+      <h1 class="title"><b>Configurations</b></h1>
+      <div class="info">
+          <span class="error"></span>
+          <span class="success"></span>
+      </div>
+      <div class="siteListType">
+        <h4>Should the URL's be a whitelist (only the ones entered will be sticky) or a blacklist (the ones entered will not be sticky)</h4>
+        <input type="radio" class="siteListType" id="siteListType-whitelist" value="whitelist" name="siteListType" />
+        <lable for="siteListTypeWhitelist">Whitelist</lable>
+
+        <input type="radio" class="siteListType" id="siteListType-blacklist" value="blacklist" name="siteListType" checked/>
+        <lable for="siteListTypeBlacklist">Blacklist</lable>
+      </div>
+      <div class="siteList">
+        <lable for="siteList"><h4>When a URL of a pinned tab matches one of these case insensitive <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions">regular expressions</a>, its links will obey the set preference for the list. Use this to ignore or specify sites that already behave like pinned apps. Example: <code>twitter\.com</code></h4></lable>
+        <textarea class="optionValue" id="siteList" rows="10" cols="50"></textarea>
+      </div>
+      <div class="debugOptions">
+        <h4>Show the following messages in the console:</h4>
+        <input type="checkbox" class="logMethod" id="logMethod-startup" value="startup" name="logMethod" />
+        <lable for="logMethodStartup">Startup</lable>
+
+        <input type="checkbox" class="logMethod" id="logMethod-debug" value="debug" name="logMethod"/>
+        <lable for="logMethodDebug">Debug</lable>
+        
+        <input type="checkbox" class="logMethod" id="logMethod-error" value="error" name="logMethod"/>
+        <lable for="logMethodError">Error</lable>
+      </div>
       <div class="buttons">
         <button class="saveButton">Save Preferences</button>
       </div>
     </section>
 
-    <script src="options.js"></script>
+    <script type="module" src="options.js"></script>
   </body>
 
 </html>

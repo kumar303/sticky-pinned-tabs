@@ -1,7 +1,7 @@
 {
   "name": "sticky-pinned-tabs",
-  "version": "1.1.0",
-  "description": "",
+  "version": "1.1.1",
+  "description": "This forces all links within a pinned tab to open with target=_blank. This makes your pinned tabs more \"sticky\" in that clicking on links won't lose the pinned content.",
   "scripts": {
     "start": "web-ext run",
     "pkg": "web-ext build"
@@ -9,14 +9,11 @@
   "author": "Kumar McMillan",
   "license": "MPL-2.0",
   "devDependencies": {
-    "web-ext": "2.9.2"
+    "web-ext": "^4.0.0"
   },
   "webExt": {
     "run": {
       "browserConsole": true,
-      "pref": [
-        "browser.link.open_newwindow=3"
-      ],
       "startUrl": [
         "github.com"
       ]

@@ -1,5 +1,5 @@
-const logId = 'sticky-pinned-tabs [extension]';
-console.log(`${logId}: starting background script`);
+import { helper } from './helper/helper.js';
+helper.log('startup', `starting background script`);
 
 function initPinnedTab() {
   browser.tabs
@@ -10,15 +10,22 @@ function initPinnedTab() {
     })
     .then((tabs) => {
       if (tabs.length > 0) {
-        return browser.storage.local.get().then((sitesToIgnore) => {
+        return browser.storage.local.get().then(
+          (options) => {
           browser.tabs.sendMessage(tabs[0].id, {
             fixPinnedTabLinks: true,
-            sitesToIgnore: sitesToIgnore.option || [],
+            urlList: options.urlList || [],
+            urlListType: options.urlListType || 'blacklist',
           });
         });
       }
     })
-    .catch((error) => console.error(`${logId}: Error: ${error}`));
+    .catch((error) => helper.log('error', `Error: ${error}`));
 }
 
 browser.tabs.onUpdated.addListener(initPinnedTab);
+
+//TODO: Find a better way to log in content.js
+browser.runtime.onMessage.addListener((request) => {
+  helper.log(request.type, request.message);
+});
