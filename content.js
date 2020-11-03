@@ -2,7 +2,7 @@ const logId = 'sticky-pinned-tabs [extension]';
 
 // TODO: observe dom mutation, maybe?
 
-function   (stickDomain) {
+function fixAllLinkTargets(stickDomain) {
   console.log(
     `${logId}: ${
       window.location.href
