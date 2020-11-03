@@ -3,10 +3,17 @@
   <head>
     <meta charset="utf-8">
     <style>
-      .optionValue {
+      label {
+        display: inline;
+      }
+
+      textarea {
         display: block;
-        margin: 1em 0;
         width: 100%;
+      }
+
+      .optionValue {
+        margin: 1em 0;
       }
 
       .buttons {
@@ -36,7 +43,11 @@
         When a URL of a pinned tab matches one of these case insensitive <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions">regular expressions</a>, its links will not be changed. Use this to ignore sites that already behave like pinned apps. Example: <code>twitter\.com</code>
       </p>
       <div class="info"><span></span>&nbsp;</div>
-      <textarea class="optionValue" rows="10" cols="50"></textarea>
+      <textarea id="option" rows="10" cols="50" class="optionValue"></textarea>
+
+      <p class="title"><b>Behaviour</b></p>
+      <div class="info"><span></span>&nbsp;</div>
+      <p><label><input type="checkbox" id="optionStickDomain" class="optionValue" value="checked"> Stick links from the same domain</label></p>
       <div class="buttons">
         <button class="saveButton">Save Preferences</button>
       </div>

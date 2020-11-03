@@ -1,9 +1,14 @@
-const getOption = () => document.querySelector('.optionValue');
+const getOptions = () => document.querySelectorAll('.optionValue');
 
 // Fetch stored settings and update the UI with them.
 browser.storage.local.get().then(
   (restoredSettings) => {
-    getOption().value = restoredSettings.option.join("\n");
+    getOptions().forEach(
+      function(item) {
+        item.value = [].concat(restoredSettings[item.id]).join("\n");
+        item.checked = (item.value === 'true');
+      }
+    );
   },
   (error) => console.error(error),
 );
@@ -12,8 +17,7 @@ document.querySelector('.saveButton').addEventListener('click', () => {
   const infoContainer = document.querySelector('.info span');
   infoContainer.innerHTML = '';
 
-  const option = getOption().value
-    .split('\n')
+  var option = document.getElementById('option').value.split('\n')
     .map((opt) => opt.trim())
     .map((opt) => {
       let error;
@@ -31,6 +35,11 @@ document.querySelector('.saveButton').addEventListener('click', () => {
       }
       return opt;
     });
-
-  browser.storage.local.set({ option });
+    
+  var optionStickDomain = document.getElementById('optionStickDomain').checked;
+    
+  browser.storage.local.set({ 
+    option: option,
+    optionStickDomain: optionStickDomain
+   });
 });
