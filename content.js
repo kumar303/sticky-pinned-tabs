@@ -10,7 +10,7 @@ function fixAllLinkTargets(stickDomain) {
   );
   for (const link of window.document.getElementsByTagName('a')) {
     if (link.href !== '' && link.href.indexOf('#') !== 0) {
-      if (!stickDomain || link.href.indexOf(window.location.origin) === 0) {
+      if (!stickDomain || link.href.indexOf(window.location.origin) === -1) {
         link.target = '_blank';
       }
     }
