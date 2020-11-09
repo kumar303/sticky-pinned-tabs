@@ -18,7 +18,6 @@ function fixAllLinkTargets(stickDomain) {
 }
 
 function shouldFixThisTab(sitesToIgnore) {
-  console.log(sitesToIgnore);
   if (
     sitesToIgnore.some((pattern) => {
       return pattern !== '' && new RegExp(pattern, 'i').test(window.location.href);
