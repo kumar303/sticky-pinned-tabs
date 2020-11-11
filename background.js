@@ -10,10 +10,11 @@ function initPinnedTab() {
     })
     .then((tabs) => {
       if (tabs.length > 0) {
-        return browser.storage.local.get().then((sitesToIgnore) => {
+        return browser.storage.local.get().then((settings) => {
           browser.tabs.sendMessage(tabs[0].id, {
             fixPinnedTabLinks: true,
-            sitesToIgnore: sitesToIgnore.option || [],
+            sitesToIgnore: settings.option || [],
+            stickDomain: settings.optionStickDomain || false,
           });
         });
       }
