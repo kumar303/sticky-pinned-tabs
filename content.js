@@ -1,17 +1,15 @@
-const logId = 'sticky-pinned-tabs [extension]';
+const logId = "sticky-pinned-tabs [extension]";
 
 // TODO: observe dom mutation, maybe?
 
 function fixAllLinkTargets(stickDomain) {
   console.log(
-    `${logId}: ${
-      window.location.href
-    } Changing all links to open in target=_blank`,
+    `${logId}: ${window.location.href} Changing all links to open in target=_blank`
   );
-  for (const link of window.document.getElementsByTagName('a')) {
-    if (link.href !== '' && link.href.indexOf('#') !== 0) {
+  for (const link of window.document.getElementsByTagName("a")) {
+    if (link.href !== "" && link.href.indexOf("#") !== 0) {
       if (!stickDomain || link.origin !== window.location.origin) {
-        link.target = '_blank';
+        link.target = "_blank";
       }
     }
   }
@@ -20,7 +18,9 @@ function fixAllLinkTargets(stickDomain) {
 function shouldFixThisTab(sitesToIgnore) {
   if (
     sitesToIgnore.some((pattern) => {
-      return pattern !== '' && new RegExp(pattern, 'i').test(window.location.href);
+      return (
+        pattern !== "" && new RegExp(pattern, "i").test(window.location.href)
+      );
     })
   ) {
     return false;

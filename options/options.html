@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <style>
       label {
         display: inline;
@@ -36,17 +36,24 @@
   </head>
 
   <body>
-
     <section>
       <p class="title"><b>Sites to ignore</b></p>
       <p>
-        When a URL of a pinned tab matches one of these case insensitive <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions">regular expressions</a>, its links will not be changed. Use this to ignore sites that already behave like pinned apps. Example: <code>twitter\.com</code>
+        When a URL of a pinned tab matches one of these case insensitive
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions"
+          >regular expressions</a
+        >, its links will not be changed. Use this to ignore sites that already
+        behave like pinned apps. Example: <code>twitter\.com</code>
       </p>
       <div class="info"><span></span>&nbsp;</div>
       <textarea id="option" rows="10" cols="50" class="optionValue"></textarea>
 
       <p class="title"><b>Behaviour</b></p>
-      <label><input type="checkbox" id="optionStickDomain" class="optionValue"> Open same-origin links in the pinned tab</label>
+      <label
+        ><input type="checkbox" id="optionStickDomain" class="optionValue" />
+        Open same-origin links in the pinned tab</label
+      >
       <div class="buttons">
         <button class="saveButton">Save Preferences</button>
       </div>
@@ -54,5 +61,4 @@
 
     <script src="options.js"></script>
   </body>
-
 </html>

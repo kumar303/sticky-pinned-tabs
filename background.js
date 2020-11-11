@@ -1,4 +1,4 @@
-const logId = 'sticky-pinned-tabs [extension]';
+const logId = "sticky-pinned-tabs [extension]";
 console.log(`${logId}: starting background script`);
 
 function initPinnedTab() {
