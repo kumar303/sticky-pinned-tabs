@@ -2,7 +2,7 @@ This browser extension forces all links within a pinned tab to open with `target
 
 ## Installation
 
-Install it for Firefox from [addons.mozilla.org](https://addons.mozilla.org/en-US/firefox/addon/sticky-pinned-tabs/).
+Install it for Firefox from [addons.mozilla.org](https://addons.mozilla.org/firefox/addon/sticky-pinned-tabs/).
 
 Go to `about:addons` to set preferences.
 
